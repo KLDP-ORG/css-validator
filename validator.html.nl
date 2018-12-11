@@ -37,7 +37,7 @@
         </p>
         <p>
            <label title="Adres van de pagina om de valideren" for="uri">Adres:
-             <input type="text" name="uri" id="uri" size="45" />
+             <input type="text" name="uri" id="uri" size="45" autofocus placeholder="Enter a URL like http://domain.com/path/" />
            </label>
         </p>
               <fieldset id="extra_opt_uri" class="moreoptions">
@@ -314,7 +314,7 @@
       </div><!-- fields -->
   </div> <!-- frontforms -->
   
-  <div id="w3c-include"><script type="text/javascript" src="//www.w3.org/QA/Tools/w3c-include.js"></script></div>
+  <div id="w3c-include"><script type="text/javascript" src="//validator.kldp.org/QA/Tools/w3c-include.js"></script></div>
 
   <div class="intro">
   <p><strong>Opmerking</strong>: Als je een CSS style sheet wilt valideren die gebruikt wordt in een (X)HTML document, zou je die eerst moeten <a href="http://validator.w3.org/">laten controleren</a>.
@@ -480,11 +480,11 @@
 
 <div id="footer">
    <p id="activity_logos">
-     <a href="//www.w3.org/QA/" title="W3C's Quality Assurance Activity, bringing you free Web quality tools and more"><img src="//www.w3.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="//www.w3.org/Style/CSS/learning" title="Leer meer over Cascading Style Sheets"><img src="images/woolly-icon" alt="CSS" /></a>
+     <a href="//www.w3.org/QA/" title="W3C's Quality Assurance Activity, bringing you free Web quality tools and more"><img src="//validator.kldp.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="//www.w3.org/Style/CSS/learning" title="Leer meer over Cascading Style Sheets"><img src="images/woolly-icon" alt="CSS" /></a>
    </p>
    <p id="support_logo">
    <a href="//www.w3.org/QA/Tools/Donate">
-   <img src="//www.w3.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
+   <img src="//validator.kldp.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
    </a>
    </p>
 

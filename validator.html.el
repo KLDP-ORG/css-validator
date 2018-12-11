@@ -37,7 +37,7 @@
         </p>
         <p>
            <label title="Διεύθυνση σελίδας για Έλεγχο Εγκυρότητας" for="uri">Διεύθυνση:
-             <input type="text" name="uri" id="uri" size="45" />
+             <input type="text" name="uri" id="uri" size="45" autofocus placeholder="Enter a URL like http://domain.com/path/" />
            </label>
         </p>
               <fieldset id="extra_opt_uri" class="moreoptions">
@@ -314,7 +314,7 @@
       </div><!-- fields -->
   </div> <!-- frontforms -->
   
-  <div id="w3c-include"><script type="text/javascript" src="//www.w3.org/QA/Tools/w3c-include.js"></script></div>
+  <div id="w3c-include"><script type="text/javascript" src="//validator.kldp.org/QA/Tools/w3c-include.js"></script></div>
 
   <div class="intro">
   <p><strong>Σημείωση</strong>: Εάν επιθυμείτε να ελέγξετε την εγκυρότητα ενός CSS style sheet που είναι ενσωματωμένο σε ένα αρχείο (X)HTML, πρέπει αρχικά να <a href="http://validator.w3.org/">ελέγξετε ότι είναι έγκυρο το αρχείο (X)HTML που χρησιμοποιείτε</a>.
@@ -480,11 +480,11 @@
 
 <div id="footer">
    <p id="activity_logos">
-     <a href="//www.w3.org/QA/" title="Η Δραστηριότητα Διασφάλισης Ποιότητας της W3C, σας παρέχει δωρεάν ποιοτικά εργαλεία στο διαδίκτυο και περισσότερα"><img src="//www.w3.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="//www.w3.org/Style/CSS/learning" title="Μάθετε περισσότερα για τα Cascading Style Sheets"><img src="images/woolly-icon" alt="CSS" /></a>
+     <a href="//www.w3.org/QA/" title="Η Δραστηριότητα Διασφάλισης Ποιότητας της W3C, σας παρέχει δωρεάν ποιοτικά εργαλεία στο διαδίκτυο και περισσότερα"><img src="//validator.kldp.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="//www.w3.org/Style/CSS/learning" title="Μάθετε περισσότερα για τα Cascading Style Sheets"><img src="images/woolly-icon" alt="CSS" /></a>
    </p>
    <p id="support_logo">
    <a href="//www.w3.org/QA/Tools/Donate">
-   <img src="//www.w3.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
+   <img src="//validator.kldp.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
    </a>
    </p>
 

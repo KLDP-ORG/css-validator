@@ -37,7 +37,7 @@
         </p>
         <p>
            <label title="検証対象のアドレスを入力してください" for="uri">アドレス:
-             <input type="text" name="uri" id="uri" size="45" />
+             <input type="text" name="uri" id="uri" size="45" autofocus placeholder="Enter a URL like http://domain.com/path/" />
            </label>
         </p>
               <fieldset id="extra_opt_uri" class="moreoptions">
@@ -314,12 +314,37 @@
       </div><!-- fields -->
   </div> <!-- frontforms -->
   
-  <div id="w3c-include"><script type="text/javascript" src="//www.w3.org/QA/Tools/w3c-include.js"></script></div>
+  <div id="w3c-include"><script type="text/javascript" src="//validator.kldp.org/QA/Tools/w3c-include.js"></script></div>
 
   <div class="intro">
   <p><strong>メモ</strong>: CSSスタイルシートを意図した通りに機能させるには、正しい文書解析木が必要です。つまり、<a href="http://validator.w3.org/">正当なHTML</a>を用いるべきです。.
   </p>
   </div>
+
+<div style="white-space: pre;">
+      - 2018.12.11 <a href="https://github.com/w3c/css-validator/tree/445f7d9">@445f7d9</a> revisionに更新
+      - 2016.02.26 jvmをopenjdk 1.8に変更しました。
+      - 2016.02.04 cvs 2016/02/03バージョンに更新しました。
+                   jreのバージョンを8に更新されました。
+                   tomcatのバージョンを8に更新されました。
+      - 2013.09.24 cvs 2013/09/24バージョンに更新しました。
+      - 2012.11.29 cvs 2012/11/29バージョンに更新しました。
+                   jreのバージョンを7に更新されました。
+                   tomcatのバージョンを7に更新されました。
+      - 2011.09.14 cvs 2011/09/14バージョンに更新しました。
+      - 2010.12.15 cvs 2010/12/14バージョンに更新しました。
+                   jreのバージョンを6に更新しました。
+                   tomcatのバージョンを6に更新しました。
+                   不足している翻訳を追加しました。
+      - 2009.04.07 cvs 2009/04/05バージョンに更新しました。
+                   java web serverをjigsawからtomcatに変更しました。
+      - 2006.12.27 cvs 2006/12/05バージョンに更新しました。
+                   多言語をサポートします。
+      - 2006.12.05 文法エラー発生時にエラーが発生する不具合を修正
+      - 2006.12.05 file upload動作しない問題を修正
+</div>
+
+
   <ul class="navbar" id="menu">
     <li><a href="about.html" title="CSS 検証サービスについて">このサービスについて</a> <span class="hideme">|</span></li>
     <li><a href="documentation.html" title="CSS 検証サービスドキュメント: 目次">ドキュメント</a> <span class="hideme">|</span></li>
@@ -480,11 +505,11 @@
 
 <div id="footer">
    <p id="activity_logos">
-     <a href="//www.w3.org/QA/" title="W3CのQuality Assurance Activityによって、フリーなウェブ品質ツールなどが提供されています。"><img src="//www.w3.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="//www.w3.org/Style/CSS/learning" title="カスケーディングスタイルシートについてもっと知る"><img src="images/woolly-icon" alt="CSS" /></a>
+     <a href="//www.w3.org/QA/" title="W3CのQuality Assurance Activityによって、フリーなウェブ品質ツールなどが提供されています。"><img src="//validator.kldp.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="//www.w3.org/Style/CSS/learning" title="カスケーディングスタイルシートについてもっと知る"><img src="images/woolly-icon" alt="CSS" /></a>
    </p>
    <p id="support_logo">
    <a href="//www.w3.org/QA/Tools/Donate">
-   <img src="//www.w3.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
+   <img src="//validator.kldp.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
    </a>
    </p>
 

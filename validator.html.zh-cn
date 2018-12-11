@@ -37,7 +37,7 @@
         </p>
         <p>
            <label title="要验证的页面地址" for="uri">URI地址:
-             <input type="text" name="uri" id="uri" size="45" />
+             <input type="text" name="uri" id="uri" size="45" autofocus placeholder="Enter a URL like http://domain.com/path/" />
            </label>
         </p>
               <fieldset id="extra_opt_uri" class="moreoptions">
@@ -314,12 +314,35 @@
       </div><!-- fields -->
   </div> <!-- frontforms -->
   
-  <div id="w3c-include"><script type="text/javascript" src="//www.w3.org/QA/Tools/w3c-include.js"></script></div>
+  <div id="w3c-include"><script type="text/javascript" src="//validator.kldp.org/QA/Tools/w3c-include.js"></script></div>
 
   <div class="intro">
   <p><strong>注意</strong>: 如果你想验证一段嵌入在HTML或者XHTML文档中的CSS，你首先要<a href="http://validator.w3.org/">验证你的HTML或者XHTML文档</a>是正确的。.
   </p>
   </div>
+
+<div style="white-space: pre;">
+      - 2016.02.26 我们将jvm改为openjdk 1.8。
+      - 2016.02.04 cvs更新至2016/02/03。
+                   jre更新至8。
+                   tomcat更新至8。
+      - 2013.09.24 cvs更新至2013/09/24版。
+      - 2012.11.29 cvs更新至 2012/11/29版。
+                   jre更新至7。
+                   tomcat更新至7。
+      - 2011.09.14 cvs已更新至2011/09/14版本。
+      - 2010.12.15 cvs已更新至2010/12/14版本。
+                   jre更新至6。
+                   tomcat更新至6。
+                   添加缺失的翻译。
+      - 2009.04.07 cvs更新至2009/04/05版。
+                   从jigsaw将java web服务器更改为tomcat。
+      - 2006.12.27 cvs更新至2006/12/05版本。
+                   多语言支持。
+      - 2006.12.05 修复了有关语法错误的错误。
+      - 2006.12.05 修复了文件上传。
+</div>
+
   <ul class="navbar" id="menu">
     <li><a href="about.html" title="About this service">关于</a> <span class="hideme">|</span></li>
     <li><a href="documentation.html" title="Documentation for the W3C CSS Validation Service">文档</a> <span class="hideme">|</span></li>
@@ -480,11 +503,11 @@
 
 <div id="footer">
    <p id="activity_logos">
-     <a href="//www.w3.org/QA/" title="W3C's Quality Assurance Activity, bringing you free Web quality tools and more"><img src="//www.w3.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="//www.w3.org/Style/CSS/learning" title="Learn more about Cascading Style Sheets"><img src="images/woolly-icon" alt="CSS" /></a>
+     <a href="//www.w3.org/QA/" title="W3C's Quality Assurance Activity, bringing you free Web quality tools and more"><img src="//validator.kldp.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="//www.w3.org/Style/CSS/learning" title="Learn more about Cascading Style Sheets"><img src="images/woolly-icon" alt="CSS" /></a>
    </p>
    <p id="support_logo">
    <a href="//www.w3.org/QA/Tools/Donate">
-   <img src="//www.w3.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
+   <img src="//validator.kldp.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
    </a>
    </p>
 

@@ -37,7 +37,7 @@
         </p>
         <p>
            <label title="Address of page to Validate" for="uri">Address:
-             <input type="text" name="uri" id="uri" size="45" />
+             <input type="text" name="uri" id="uri" size="45" autofocus placeholder="Enter a URL like http://domain.com/path/" />
            </label>
         </p>
               <fieldset id="extra_opt_uri" class="moreoptions">
@@ -314,12 +314,37 @@
       </div><!-- fields -->
   </div> <!-- frontforms -->
   
-  <div id="w3c-include"><script type="text/javascript" src="//www.w3.org/QA/Tools/w3c-include.js"></script></div>
+  <div id="w3c-include"><script type="text/javascript" src="//validator.kldp.org/QA/Tools/w3c-include.js"></script></div>
 
   <div class="intro">
   <p><strong>Note</strong>: If you want to validate your CSS style sheet embedded in an (X)HTML document, you should first <a href="http://validator.w3.org/">check that the (X)HTML you use is valid</a>.
   </p>
   </div>
+
+<div style="white-space: pre">
+      - 2018.12.11 update <a href="https://github.com/w3c/css-validator/tree/445f7d9">@445f7d9</a>
+      - 2017.03.22 update tomcat to 8.5
+      - 2016.02.26 change jvm to openjdk 1.8
+      - 2016.02.04 update cvs 2016/02/03 version
+                   update jre to 8
+                   update tomcat to 8
+      - 2013.09.24 update cvs 2013/09/24 version
+      - 2012.11.29 update cvs 2012/11/29 version
+                   update jre to 7
+                   update tomcat to 7
+      - 2011.09.14 update cvs 2011/09/14 version
+      - 2010.12.15 update cvs 2010/12/14 version
+                   update tomcat to 6
+                   update jre to 6
+                   add missing translation
+      - 2009.04.07 update cvs 2009/04/05 version
+                   changed java web server to tomcat from jigsaw
+      - 2006.12.27 update cvs 2006/12/05 version
+                   multi langugae support
+      - 2006.12.05 fixed fault bug about syntax eorror
+      - 2006.12.05 fixed file upload
+</pre>
+
   <ul class="navbar" id="menu">
     <li><a href="about.html" title="About this service">About</a> <span class="hideme">|</span></li>
     <li><a href="documentation.html" title="Documentation for the W3C CSS Validation Service">Documentation</a> <span class="hideme">|</span></li>
@@ -480,11 +505,11 @@
 
 <div id="footer">
    <p id="activity_logos">
-     <a href="//www.w3.org/QA/" title="W3C's Quality Assurance Activity, bringing you free Web quality tools and more"><img src="//www.w3.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="//www.w3.org/Style/CSS/learning" title="Learn more about Cascading Style Sheets"><img src="images/woolly-icon" alt="CSS" /></a>
+     <a href="//www.w3.org/QA/" title="W3C's Quality Assurance Activity, bringing you free Web quality tools and more"><img src="//validator.kldp.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="//www.w3.org/Style/CSS/learning" title="Learn more about Cascading Style Sheets"><img src="images/woolly-icon" alt="CSS" /></a>
    </p>
    <p id="support_logo">
    <a href="//www.w3.org/QA/Tools/Donate">
-   <img src="//www.w3.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
+   <img src="//validator.kldp.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
    </a>
    </p>
 
