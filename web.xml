@@ -20,7 +20,7 @@
    </servlet-mapping>
 
    <welcome-file-list>
-     <welcome-file>validator.html.en</welcome-file>
+     <welcome-file>validator.html.ko</welcome-file>
    </welcome-file-list>
 
 <!-- ===================== Additional MIME Type Mappings =================== -->
