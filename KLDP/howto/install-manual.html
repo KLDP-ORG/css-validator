@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CSS 검사 서비스 다운로드와 설치</title>
+  <link rev="made" href="mailto:www-validator-css@w3.org" />
+  <link rev="start" href="./" title="Home Page" />
+  <style type="text/css" media="all">
+    @import "../style/base.css";  
+    @import "../style/docs.css";
+    @import "./style/howto.css";
+  </style>
+</head>
+
+<body>
+<div id="banner">
+    <h1 id="title"><a href="http://www.w3.org/"><img alt="W3C" width="110" height="61" id="logo" src="../images/w3c.png" /></a>
+    <a href="../"><span>CSS 검사 서비스</span></a></h1>
+    <p id="tagline">
+        캐스케이딩 스타일시트 (CSS)와 스타일시트를 포함한 문서를 검사
+    </p>
+</div>
+
+<div class="doc">
+<h2>Operation CSS Validator on your machine with TOMCAT</h2>
+
+<p>
+    이 문서는 CSS-Validator 를 local server 에서 직접 운영을 하기 위하여 CSS-Validator
+    소스를 받아서 설치하여 운영을 하기 위한 자료입니다. 이 문서는 2018년 12월 11일자 Github
+    CSS-Validator master revision(<a href="https://github.com/w3c/css-validator/tree/445f7d9">@445f7d9</a>)
+    소스와 tomcat 8.5, openjdk 1.8을 기준으로 설명 합니다.
+</p>
+
+<p>
+    이 문서는 jdk와 tomcat 을 수동으로 설치하여 css-validator 를 설치 운영하는 방법을
+    설명하고 있습니다. CentOS 7 에서의 설치 방법은 <a href="./">KLDP install</a> 문서를 참고 하십시오.
+</p>
+
+<p>
+    이 문서는 <a href="http://oops.org/">김정균</a>에 의하여 작성이 되었으며, 자유롭게
+    사용하여도 무방합니다.
+</p>
+
+<ol class="hcontents">
+    <li><a href="#package">Java Pacakage</a></li>
+    <li><a href="#req">Requirement</a></li>
+    <li><a href="#build">Build</a></li>
+    <li><a href="#confirm">Confirm</a></li>
+    <li><a href="#problems">Problems</a></li>
+</ol>
+
+<a name="package"></a>
+<h3>1. Java Pcakage</h3>
+<p>
+    이곳에서 배포하는 CSS validator package 는 현재 KLDP 에서 운영 중인 버전(Github <a href="https://github.com/w3c/css-validator/tree/445f7d9">@445f7d9</a>) 이며, openjdk 1.8 로 빌드 되었습니다.
+</p>
+<p>
+        <a href="css-validator.jar">css-validator.jar</a>
+</p>
+
+<a name="req"></a>
+<h3>2. Requirement</h3>
+
+    나열된 버전은 빌드 및 운영 테스트를 검증한 버전 입니다.<br/><br/>
+
+    <ol class="hcontents">
+    <li><span class="sec">css-validator source:</span><br />
+        <ul>
+            <li>W3C css-validator GITHUB repository: 
+               <a href="https://github.com/w3c/css-validator/archive/master.zip">
+               https://github.com/w3c/css-validator/archive/master.zip</a></li>
+            <li>KLDP css-validator repository:
+               <a href="https://github.com/KLDP-ORG/css-validator/archive/kldp.zip">
+               https://github.com/KLDP-ORG/css-validator/archive/kldp.zip</a></li>
+            </li>
+        </ul>
+        <br />
+    </li>
+    <li><span class="sec">Current Tomcat WebServer 8.5:</span><br />
+        <a href="http://apache.tt.co.kr/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34.tar.gz">apache-tomcat-8.5.34.tar.gz</a><br /><br />
+    </li>
+    <li><span class="sec">ant (css-build 를 위해 필요):</span><br />
+        <a href="http://ant.apache.org/bindownload.cgi">http://ant.apache.org/bindownload.cgi</a> (Java build tool)<br />
+        <a href="http://apache.mirror.cdnetworks.com//ant/binaries/apache-ant-1.9.13-bin.tar.gz">http://apache.mirror.cdnetworks.com//ant/binaries/apache-ant-1.9.13-bin.tar.gz</a><br /><br />
+    </li>
+    <li><span class="sec">JDK:</span><br />
+        - <a href="https://openjdk.java.net/install/">openjdk 1.8</a><br />
+        - CSS-Validator는 JDK 5 이상 버전이 필요합니다.<br /><br />
+    </li>
+    </ol>
+
+<a name="build"></a>
+<h3>3. Build</h3>
+    <ol class="hcontents">
+    <li><span class="sec">openjdk 1.8 Installation:</span><br />
+        알아서 설치해 주세요.<br /><br />
+    </li>
+    <li><span class="sec">ant Installation:</span><br />
+        <span class="shell">shell&gt;</span> tar xvfpj apache-ant-1.9.13-bin.tar.bz2<br />
+        <span class="shell">shell&gt;</span> mv apache-ant-1.9.13 /uar/java/ant<br /><br />
+    </li>
+    <li><span class="sec">Tomcat Installation:</span><br />
+        <span class="shell">shell&gt;</span> tar xvfpj apache-tomcat-8.5.34.tar.gz<br />
+        <span class="shell">shell&gt;</span> mv apache-tomcat-8.5.34 /usr/java/tomcat<br /><br />
+    </li>
+    <li><span class="sec">Configuration ENV variables:</span><br />
+        경로는 알아서 수정을 해 주십시오.<br /><br />
+        <span class="shell">shell&gt;</span> cat ~/.bashrc<br />
+        <pre>
+JAVA_BASE="/usr/java"
+JAVA_HOME="${JAVA_BASE}/latest"
+CATALINA_HOME="${JAVA_BASE}/tomcat"
+
+#
+# css-validator library import
+#
+CSS_HOME="${CATALINA_HOME}/webapps/css-validator"
+
+CLASSPATH="$CLASSPATH"
+CLASSPATH="$CLASSPATH:${JAVA_HOME}/lib/tools.jar"
+CLASSPATH="$CLASSPATH:${CATALINA_HOME}/common/lib"
+CLASSPATH="$CLASSPATH:${CSS_HOME}/WEB_INF/lib"
+CLASSPATH="$CLASSPATH:."
+
+export JAVA_BASE JAVA_HOME CATALINA_HOME CSS_HOME CLASSPATH
+</pre>
+        <span class="shell">shell&gt;</span> source ~/.bashrc<br /><br />
+    </li>
+
+    <li><span class="sec">css-validation build</span><br />
+
+        <span class="shell">shell&gt;</span> unzip master.zip<br />
+        <span class="shell">shell&gt;</span> cd css-valisator-master<br />
+        <span class="shell">DOWNLOWD:</span> <a href="./patch/01-build-servlet-api.patch">01-build-servlet-api.patch</a> patch file at top source directory<br />
+        <span class="shell">shell&gt;</span> patch -p1 &lt; 01-build-servlet-api.patch<br />
+        <span class="shell">shell&gt;</span> download <a href="./script/build-tomcat.sh.txt">build-tomcat.sh.txt</a><br />
+        <span class="shell">shell&gt;</span> sh ./build-tomcat.sh.txt<br /><br />
+    </li>
+    <li><span class="sec">Tomcat Execute</span><br />
+        <span class="shell">shell&gt;</span> cd /usr/java/tomcat/webapps<br />
+        <span class="shell">shell&gt;</span> cd ln -sf /path/css-validator-master ./css-validator<br />
+        <span class="shell">shell&gt;</span> cd /usr/java/tomcat/bin<br />
+        <span class="shell">shell&gt;</span> sh ./startup.sh<br /><br />
+    </li>
+    <li><span class="sec">apache + mod_jk</span><br /><br />
+        D.I.Y<br /><br />
+    </li>
+    </ol>
+
+<a name="confirm"></a>
+<h3>4. 확인</h3>
+
+<p>
+    http://server:8080/css-validator/validaotr?uri=http://domain
+    으로 확인
+</p>
+
+<a name="problems"></a>
+<h3>5. 문제점</h3>
+    <ol>
+    <li>한글이 깨질 경우,  server.xml 의 AJP/1.3 설정을 주석 처리 해 줘 보십시오.</li>
+    </ol>
+    <pre>
+    &lt;!-- Define an AJP 1.3 Connector on port 8009 --&gt;
+    &lt;!-- Don't use for css-validator hangul broken
+    &lt;Connector port="8009" 
+               enableLookups="false" redirectPort="8443" protocol="AJP/1.3" /&gt;
+    --&gt;
+</pre>
+</div>
+
+<ul class="navbar"  id="menu">
+        <li><strong><a href="../" title="Home page for the W3C CSS Validation Service">홈</a></strong> <span class="hideme">|</span></li>
+        <li><a href="../about.html" title="About this service">About</a> <span class="hideme">|</span></li>
+ 
+        <li><a href="../documentation.html" title="Documentation for the W3C CSS Validation Service">문서</a> <span class="hideme">|</span></li>
+        <li><a href="../Email.html" title="How to provide feedback on this service">피드백</a> <span class="hideme">|</span></li>
+        <li><a href="../thanks.html" title="Credits and Acknowlegments">공헌</a><span class="hideme">|</span></li>
+ 
+</ul>
+
+<div id="footer">
+        <p id="activity_logos">
+                <a href="http://www.w3.org/QA/" title="W3C's Quality Assurance Activity, bringing you free Web quality tools and more"><img src="http://validator.kldp.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="http://www.w3.org/Style/CSS/learning" title="Learn more about Cascading Style Sheets"><img src="../images/woolly-icon.png" alt="CSS" /></a>
+        </p>
+        <p id="support_logo">
+                <a href="http://www.w3.org/QA/Tools/Donate">
+                <img src="http://validator.kldp.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
+                </a>
+        </p>
+
+        <p class="copyright">
+                <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> &copy; 1994-2009
+                <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a>&reg;
+
+                (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>,
+                <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+                <a href="http://www.keio.ac.jp/">Keio</a>),
+                All Rights Reserved.
+                W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+                <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,
+                <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>
+                and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a>
+
+                rules apply. Your interactions with this site are in accordance
+                with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a> and
+                <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a> privacy
+                statements.
+        </p>
+</div>
+
+</body>
+
+<!--
+ * vim: softtabstop=4
+ * vim: tabstop=4
+ * vim: shiftwidth=4
+ * vim: expandtab
+-->
+</html>

@@ -320,29 +320,6 @@
   <p><strong>注意</strong>: 如果你想验证一段嵌入在HTML或者XHTML文档中的CSS，你首先要<a href="http://validator.w3.org/">验证你的HTML或者XHTML文档</a>是正确的。.
   </p>
   </div>
-
-<div style="white-space: pre;">
-      - 2016.02.26 我们将jvm改为openjdk 1.8。
-      - 2016.02.04 cvs更新至2016/02/03。
-                   jre更新至8。
-                   tomcat更新至8。
-      - 2013.09.24 cvs更新至2013/09/24版。
-      - 2012.11.29 cvs更新至 2012/11/29版。
-                   jre更新至7。
-                   tomcat更新至7。
-      - 2011.09.14 cvs已更新至2011/09/14版本。
-      - 2010.12.15 cvs已更新至2010/12/14版本。
-                   jre更新至6。
-                   tomcat更新至6。
-                   添加缺失的翻译。
-      - 2009.04.07 cvs更新至2009/04/05版。
-                   从jigsaw将java web服务器更改为tomcat。
-      - 2006.12.27 cvs更新至2006/12/05版本。
-                   多语言支持。
-      - 2006.12.05 修复了有关语法错误的错误。
-      - 2006.12.05 修复了文件上传。
-</div>
-
   <ul class="navbar" id="menu">
     <li><a href="about.html" title="About this service">关于</a> <span class="hideme">|</span></li>
     <li><a href="documentation.html" title="Documentation for the W3C CSS Validation Service">文档</a> <span class="hideme">|</span></li>
@@ -530,5 +507,29 @@
       statements.
     </p>
 </div>
+
+    <div style="white-space: pre-wrap; line-height: 150%; font-family: Consolas, Courier, monospace; font-size: 0.9em; margin-top: 20px;">
+    <strong style="font-size: 1.3em;">** KLDP Changes:</strong>
+
+      - 2016.02.26 我们将jvm改为openjdk 1.8。
+      - 2016.02.04 cvs更新至2016/02/03。
+                   jre更新至8。
+                   tomcat更新至8。
+      - 2013.09.24 cvs更新至2013/09/24版。
+      - 2012.11.29 cvs更新至 2012/11/29版。
+                   jre更新至7。
+                   tomcat更新至7。
+      - 2011.09.14 cvs已更新至2011/09/14版本。
+      - 2010.12.15 cvs已更新至2010/12/14版本。
+                   jre更新至6。
+                   tomcat更新至6。
+                   添加缺失的翻译。
+      - 2009.04.07 cvs更新至2009/04/05版。
+                   从jigsaw将java web服务器更改为tomcat。
+      - 2006.12.27 cvs更新至2006/12/05版本。
+                   多语言支持。
+      - 2006.12.05 修复了有关语法错误的错误。
+      - 2006.12.05 修复了文件上传。
+    </div>
   </body>
 </html>

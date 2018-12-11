@@ -28,7 +28,21 @@
 <div class="doc">
 <h2>CSS 검사 서비스 다운로드와 설치</h2>
 
-<p>This translation of the installation guide for the CSS validator may be out of date. For a reliable, up-to-date guide, refer to the <a href="DOWNLOAD.html.en">English</a> or <a href="DOWNLOAD.html.fr">French</a> versions.</p>
+<p>
+CSS validator 설치 문서 번역본은 유효하지 않을 수 있습니다. 최신버전의 가이드를 참조
+하려면 <a href="DOWNLOAD.html.en">영어</a> 또는 <a href="DOWNLOAD.html.fr">프랑스어</a> 문서를 참고 하기 바랍니
+다.
+</p>
+
+<h3>Commented By KLDP</h3>
+
+<p>
+현재 KLDP 에서 제공하고 있는 버전은 github revision
+<a href="https://github.com/w3c/css-validator/tree/445f7d9">@445f7d9</a>와
+openjdk 1.8 / Tomcat 8.5 로 운영 중 입니다. KLDP 에 구성한 문서를
+참고 하시려면 <a href="./howto/">KLDP Installation</a>을 참조 하시기 바랍니다.
+</p>
+
 
 <h3 id="download">CSS 검사 도구 다운로드</h3>	
 

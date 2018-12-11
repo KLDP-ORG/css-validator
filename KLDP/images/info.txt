@@ -1,0 +1,13 @@
+Brilliant Button Maker information
+
+size: 80 x 15
+left: 25px start 5
+right: start 4
+
+right color:
+	gray   => #898e79
+	orange => #ff6600
+	blue   => #6666FF
+	block  => #000000
+	green  => #009900
+	red    => #FF0000

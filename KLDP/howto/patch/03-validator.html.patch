@@ -1,0 +1,582 @@
+diff -urNp 20160203.org/validator.html.bg 20160203/validator.html.bg
+--- 20160203.org/validator.html.bg	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.bg	2016-02-04 16:59:56.487179705 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++    <script type="text/javascript">
++        function UriFocus () {
++            document.getElementById ('uri').focus ();
++            return;
++        }
++    </script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Адрес на страница за Валидиране" for="uri">Адрес:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.cs 20160203/validator.html.cs
+--- 20160203.org/validator.html.cs	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.cs	2016-02-04 16:59:56.488179762 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++	<script type="text/javascript">
++		function UriFocus () {
++			document.getElementById ('uri').focus ();
++			return;
++		}
++	</script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Adresa stránky k ověření" for="uri">Adresa:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.de 20160203/validator.html.de
+--- 20160203.org/validator.html.de	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.de	2016-02-04 16:59:56.488179762 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++	<script type="text/javascript">
++		function UriFocus () {
++			document.getElementById ('uri').focus ();
++			return;
++		}
++	</script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Adresse des zu prüfenden Dokuments" for="uri">Adresse:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.el 20160203/validator.html.el
+--- 20160203.org/validator.html.el	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.el	2016-02-04 16:59:56.489179818 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++	<script type="text/javascript">
++		function UriFocus () {
++			document.getElementById ('uri').focus ();
++			return;
++		}
++	</script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Διεύθυνση σελίδας για Έλεγχο Εγκυρότητας" for="uri">Διεύθυνση:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.en 20160203/validator.html.en
+--- 20160203.org/validator.html.en	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.en	2016-02-04 16:59:56.490179875 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++	<script type="text/javascript">
++		function UriFocus () {
++			document.getElementById ('uri').focus ();
++			return;
++		}
++	</script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Address of page to Validate" for="uri">Address:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+@@ -317,6 +323,30 @@
+   <p><strong>Note</strong>: If you want to validate your CSS style sheet embedded in an (X)HTML document, you should first <a href="http://validator.w3.org/">check that the (X)HTML you use is valid</a>.
+   </p>
+   </div>
++
++
++<pre>
++      - 2016.02.26 change jvm to openjdk to 8
++      - 2016.02.04 update cvs 2016/02/03 version
++                   update jre to 8
++                   update tomcat to 8
++      - 2013.09.24 update cvs 2013/09/24 version
++      - 2012.11.29 update cvs 2012/11/29 version
++                   update jre to 7
++                   update tomcat to 7
++      - 2011.09.14 update cvs 2011/09/14 version
++      - 2010.12.15 update cvs 2010/12/14 version
++                   update tomcat to 6
++                   update jre to 6
++                   add missing translation
++      - 2009.04.07 update cvs 2009/04/05 version
++                   changed java web server to tomcat from jigsaw
++      - 2006.12.27 update cvs 2006/12/05 version
++                   multi langugae support
++      - 2006.12.05 fixed fault bug about syntax eorror
++      - 2006.12.05 fixed file upload
++</pre>
++
+   <ul class="navbar" id="menu">
+     <li><a href="about.html" title="About this service">About</a> <span class="hideme">|</span></li>
+     <li><a href="documentation.html" title="Documentation for the W3C CSS Validation Service">Documentation</a> <span class="hideme">|</span></li>
+diff -urNp 20160203.org/validator.html.es 20160203/validator.html.es
+--- 20160203.org/validator.html.es	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.es	2016-02-04 16:59:56.490179875 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++	<script type="text/javascript">
++		function UriFocus () {
++			document.getElementById ('uri').focus ();
++			return;
++		}
++	</script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Dirección de la página a Validar" for="uri">Dirección:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.fr 20160203/validator.html.fr
+--- 20160203.org/validator.html.fr	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.fr	2016-02-04 16:59:56.491179932 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++    <script type="text/javascript">
++        function UriFocus () {
++            document.getElementById ('uri').focus ();
++            return;
++        }
++    </script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Adresse du document à valider" for="uri">Adresse:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.hi 20160203/validator.html.hi
+--- 20160203.org/validator.html.hi	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.hi	2016-02-04 16:59:56.491179932 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++	<script type="text/javascript">
++		function UriFocus () {
++			document.getElementById ('uri').focus ();
++			return;
++		}
++	</script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="मान्यकर्ण करने के लिए पृष्ठ का पता" for="uri">पता:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.hu 20160203/validator.html.hu
+--- 20160203.org/validator.html.hu	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.hu	2016-02-04 16:59:56.492179988 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++	<script type="text/javascript">
++		function UriFocus () {
++			document.getElementById ('uri').focus ();
++			return;
++		}
++	</script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Érvényesítendő oldal címe" for="uri">Cím:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.it 20160203/validator.html.it
+--- 20160203.org/validator.html.it	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.it	2016-02-04 16:59:56.492179988 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++	<script type="text/javascript">
++		function UriFocus () {
++			document.getElementById ('uri').focus ();
++			return;
++		}
++	</script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Indirizzo della pagina da verificare" for="uri">Indirizzo:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.ja 20160203/validator.html.ja
+--- 20160203.org/validator.html.ja	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.ja	2016-02-04 16:59:56.493180045 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++	<script type="text/javascript">
++		function UriFocus () {
++			document.getElementById ('uri').focus ();
++			return;
++		}
++	</script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="検証対象のアドレスを入力してください" for="uri">アドレス:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.ko 20160203/validator.html.ko
+--- 20160203.org/validator.html.ko	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.ko	2016-02-04 17:08:04.195530135 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++    <script type="text/javascript">
++        function UriFocus () {
++            document.getElementById ('uri').focus ();
++            return;
++        }
++    </script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="검사할 웹 페이지의 주소" for="uri">주소:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+@@ -311,12 +317,35 @@
+       </div><!-- fields -->
+   </div> <!-- frontforms -->
+   
+-  <div id="w3c-include"><script type="text/javascript" src="//www.w3.org/QA/Tools/w3c-include.js"></script></div>
++  <div id="w3c-include"><script type="text/javascript" src="//validator.kldp.org/QA/Tools/w3c-include.js"></script></div>
+ 
+   <div class="intro">
+   <p><strong>주의</strong>: (X)HTML 문서에 포함된 CSS 스타일시트를 검사하기 이전에, <a href="http://validator.w3.org/">(X)HTML 문법 검사</a>를 하는 것을 권장합니다..
+   </p>
+   </div>
++
++<pre>
++      - 2016.02.26 change jvm to openjdk to 8
++      - 2016.02.04 update cvs 2016/02/03 version
++                   update jre to 8
++                   update tomcat to 8
++      - 2013.09.24 update cvs 2013/09/24 version
++      - 2012.11.29 update cvs 2012/11/29 version
++                   update jre to 7
++                   update tomcat to 7
++      - 2011.09.14 update cvs 2011/09/14 version
++      - 2010.12.15 update cvs 2010/12/14 version
++                   update tomcat to 6
++                   update jre to 6
++                   누락된 번역 추가
++      - 2009.04.07 update cvs 2009/04/05 version
++                   changed java web server to tomcat from jigsaw
++      - 2006.12.27 update cvs 2006/12/05 version
++                   multi langugae support
++      - 2006.12.05 syntax eorror 시에 fault 나는 버그 수정
++      - 2006.12.05 file upload 작동 하지 않는 문제 수정
++</pre>
++
+   <ul class="navbar" id="menu">
+     <li><a href="about.html" title="이 서비스에 대하여">정보</a> <span class="hideme">|</span></li>
+     <li><a href="documentation.html" title="W3C CSS 검사 서비스에 대한 설명서">설명서</a> <span class="hideme">|</span></li>
+@@ -477,11 +503,11 @@
+ 
+ <div id="footer">
+    <p id="activity_logos">
+-     <a href="//www.w3.org/QA/" title="W3C의 품질 검증 활동, 무료 웹 품질 검증 도구 제공"><img src="//www.w3.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="//www.w3.org/Style/CSS/learning" title="CSS(캐스케이딩 스타일 시트)에 대하여 자세히 알아보기"><img src="images/woolly-icon" alt="CSS" /></a>
++     <a href="//www.w3.org/QA/" title="W3C의 품질 검증 활동, 무료 웹 품질 검증 도구 제공"><img src="//validator.kldp.org/QA/2002/12/qa-small.png" alt="QA" /></a><a href="//www.w3.org/Style/CSS/learning" title="CSS(캐스케이딩 스타일 시트)에 대하여 자세히 알아보기"><img src="images/woolly-icon" alt="CSS" /></a>
+    </p>
+    <p id="support_logo">
+    <a href="//www.w3.org/QA/Tools/Donate">
+-   <img src="//www.w3.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
++   <img src="//validator.kldp.org/QA/Tools/I_heart_validator" alt="I heart Validator logo" title=" Validators Donation Program" />
+    </a>
+    </p>
+ 
+diff -urNp 20160203.org/validator.html.nl 20160203/validator.html.nl
+--- 20160203.org/validator.html.nl	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.nl	2016-02-04 16:59:56.493180045 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++    <script type="text/javascript">
++        function UriFocus () {
++            document.getElementById ('uri').focus ();
++            return;
++        }
++    </script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Adres van de pagina om de valideren" for="uri">Adres:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.pl-PL 20160203/validator.html.pl-PL
+--- 20160203.org/validator.html.pl-PL	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.pl-PL	2016-02-04 16:59:56.494180102 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++    <script type="text/javascript">
++        function UriFocus () {
++            document.getElementById ('uri').focus ();
++            return;
++        }
++    </script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Adres strony, która ma być walidowana" for="uri">Adres:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.pt-BR 20160203/validator.html.pt-BR
+--- 20160203.org/validator.html.pt-BR	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.pt-BR	2016-02-04 16:59:56.494180102 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++    <script type="text/javascript">
++        function UriFocus () {
++            document.getElementById ('uri').focus ();
++            return;
++        }
++    </script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Endereço da página a ser validada" for="uri">Endereço:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.ro 20160203/validator.html.ro
+--- 20160203.org/validator.html.ro	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.ro	2016-02-04 16:59:56.495180158 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++    <script type="text/javascript">
++        function UriFocus () {
++            document.getElementById ('uri').focus ();
++            return;
++        }
++    </script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Adresa paginii de validat" for="uri">Adresa:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.ru 20160203/validator.html.ru
+--- 20160203.org/validator.html.ru	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.ru	2016-02-04 16:59:56.495180158 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++    <script type="text/javascript">
++        function UriFocus () {
++            document.getElementById ('uri').focus ();
++            return;
++        }
++    </script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Адрес страницы для проверки" for="uri">Адрес:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.sv 20160203/validator.html.sv
+--- 20160203.org/validator.html.sv	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.sv	2016-02-04 16:59:56.496180215 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++    <script type="text/javascript">
++        function UriFocus () {
++            document.getElementById ('uri').focus ();
++            return;
++        }
++    </script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Adress för den sida som skall valideras" for="uri">Adress:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.uk 20160203/validator.html.uk
+--- 20160203.org/validator.html.uk	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.uk	2016-02-04 16:59:56.496180215 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++    <script type="text/javascript">
++        function UriFocus () {
++            document.getElementById ('uri').focus ();
++            return;
++        }
++    </script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="Адреса сторінки для перевірки" for="uri">Адреса:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">
+diff -urNp 20160203.org/validator.html.zh-cn 20160203/validator.html.zh-cn
+--- 20160203.org/validator.html.zh-cn	2015-11-05 05:04:15.000000000 +0900
++++ 20160203/validator.html.zh-cn	2016-02-04 16:59:56.497180272 +0900
+@@ -13,6 +13,12 @@
+ 	      </style>   
+       <script type="text/javascript" src="scripts/mootools.js"></script>
+     <script type="text/javascript" src="scripts/w3c-validator.js"></script>
++    <script type="text/javascript">
++        function UriFocus () {
++            document.getElementById ('uri').focus ();
++            return;
++        }
++    </script>
+     </head>
+ 
+   <body>
+@@ -37,7 +43,7 @@
+         </p>
+         <p>
+            <label title="要验证的页面地址" for="uri">URI地址:
+-             <input type="text" name="uri" id="uri" size="45" />
++             <input type="text" name="uri" id="uri" size="45" value="http://" />
+            </label>
+         </p>
+               <fieldset id="extra_opt_uri" class="moreoptions">

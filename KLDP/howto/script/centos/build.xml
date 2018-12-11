@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<project default="jar" name="W3C CSS Validator">
+
+  <!-- =================================================================== -->
+  <!-- User-overrideable properties                                      -->
+  <!-- =================================================================== -->
+
+  <property name="servlet.lib" value="/usr/share/java/servlet.jar"/>
+
+  <!-- =================================================================== -->
+  <!-- Project-wide properties                                           -->
+  <!-- =================================================================== -->
+  <!-- Overriding those properties works too, but is not advisable. -->
+
+  <property name="app.name" value="css-validator"/>
+  <property name="jar.file" value="${app.name}.jar"/>
+  <property name="war.file" value="${app.name}.war"/>
+
+  <!-- =================================================================== -->
+  <!-- Targets                                                             -->
+  <!-- =================================================================== -->
+
+  <path id="build.class.path">
+    <pathelement location="${servlet.lib}"/>
+    <fileset dir="lib">
+        <include name="*.jar"/>
+    </fileset>
+  </path>
+
+  <target name="prepare.check">
+    <condition property="prepare.run">
+      <and>
+        <available file="lib/jigsaw-2.2.6.jar"/>
+        <available file="lib/commons-beanutils-1.9.2.jar"/>
+        <available file="lib/commons-collections-3.2.1.jar"/>
+        <available file="lib/commons-digester-1.8.1.jar"/>
+        <available file="lib/commons-lang-2.6.jar"/>
+        <available file="lib/commons-logging-1.1.2.jar"/>
+        <available file="lib/velocity-1.7.jar"/>
+        <available file="lib/xercesImpl-2.11.0.jar"/>
+        <available file="lib/xml-apis-1.4.01.jar"/>
+        <available file="lib/tagsoup-1.2.1.jar"/>
+        <available file="lib/servlet-api-2.5-6.0.0.jar"/>
+        <available file="lib/htmlparser-1.4.1.jar"/>
+        <available file="lib/velocity-tools-generic-2.0.jar"/>
+      </and>
+    </condition>
+  </target>
+
+
+  <target name="prepare" description="Downloads necessary libs" depends="prepare.check" unless="prepare.run">
+    <mkdir dir="lib"/>
+    <mkdir dir="tmp"/>
+
+    <get dest="tmp/jigsaw-2.2.6.jar" src="https://repo1.maven.org/maven2/org/w3c/jigsaw/jigsaw/2.2.6/jigsaw-2.2.6.jar" usetimestamp="true"/>
+    <get dest="tmp/commons-beanutils-1.9.2.jar" src="https://repo1.maven.org/maven2/commons-beanutils/commons-beanutils/1.9.2/commons-beanutils-1.9.2.jar" usetimestamp="true"/>
+    <get dest="tmp/commons-collections-3.2.1.jar" src="https://repo1.maven.org/maven2/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar" usetimestamp="true"/>
+    <get dest="tmp/commons-digester-1.8.1.jar" src="https://repo1.maven.org/maven2/commons-digester/commons-digester/1.8.1/commons-digester-1.8.1.jar" usetimestamp="true"/>
+    <get dest="tmp/commons-lang-2.6.jar" src="https://repo1.maven.org/maven2/commons-lang/commons-lang/2.6/commons-lang-2.6.jar" usetimestamp="true"/>
+    <get dest="tmp/commons-logging-1.1.2.jar" src="https://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.2/commons-logging-1.1.2.jar" usetimestamp="true"/>
+    <get dest="tmp/velocity-1.7.jar" src="https://repo1.maven.org/maven2/org/apache/velocity/velocity/1.7/velocity-1.7.jar" usetimestamp="true"/>
+    <get dest="tmp/velocity-tools-generic-2.0.jar" src="http://www.apache.org/dist/velocity/tools/2.0/velocity-tools-generic-2.0.jar" usetimestamp="true"/>
+    <get dest="tmp/xercesImpl-2.11.0.jar" src="https://repo1.maven.org/maven2/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar" usetimestamp="true"/>
+    <get dest="tmp/xml-apis-1.4.01.jar" src="https://repo1.maven.org/maven2/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar" usetimestamp="true"/>
+    <get dest="tmp/tagsoup-1.2.1.jar" src="http://home.ccil.org/~cowan/XML/tagsoup/tagsoup-1.2.1.jar" usetimestamp="true"/>
+    <get dest="tmp/servlet-api-2.5-6.0.0.jar" src="http://repo1.maven.org/maven2/org/mortbay/jetty/servlet-api/2.5-6.0.0/servlet-api-2.5-6.0.0.jar" usetimestamp="true"/>
+    <get dest="tmp/htmlparser-1.4.1.jar" src="https://repo1.maven.org/maven2/nu/validator/htmlparser/1.4.1/htmlparser-1.4.1.jar" usetimestamp="true"/>
+
+
+    <copy file="tmp/servlet-api-2.5-6.0.0.jar" tofile="lib/servlet-api-2.5-6.0.0.jar"/>
+    <copy file="tmp/jigsaw-2.2.6.jar" tofile="lib/jigsaw-2.2.6.jar"/>
+    <copy file="tmp/commons-beanutils-1.9.2.jar" tofile="lib/commons-beanutils-1.9.2.jar"/>
+    <copy file="tmp/commons-collections-3.2.1.jar" tofile="lib/commons-collections-3.2.1.jar"/>
+    <copy file="tmp/commons-digester-1.8.1.jar" tofile="lib/commons-digester-1.8.1.jar"/>
+    <copy file="tmp/commons-lang-2.6.jar" tofile="lib/commons-lang-2.6.jar"/>
+    <copy file="tmp/commons-logging-1.1.2.jar" tofile="lib/commons-logging-1.1.2.jar"/>
+    <copy file="tmp/velocity-1.7.jar" tofile="lib/velocity-1.7.jar"/>
+    <copy file="tmp/velocity-tools-generic-2.0.jar" tofile="lib/velocity-tools-generic-2.0.jar"/>
+    <copy file="tmp/xercesImpl-2.11.0.jar" tofile="lib/xercesImpl-2.11.0.jar"/>
+    <copy file="tmp/xml-apis-1.4.01.jar" tofile="lib/xml-apis-1.4.01.jar"/>
+    <copy file="tmp/tagsoup-1.2.1.jar" tofile="lib/tagsoup-1.2.1.jar"/>
+    <copy file="tmp/htmlparser-1.4.1.jar" tofile="lib/htmlparser-1.4.1.jar"/>
+  </target>
+
+  <target name="build" description="Builds the validator" depends="prepare">
+    <mkdir dir="./build"/>
+    <javac classpathref="build.class.path" destdir="./build" encoding="UTF-8" includeantruntime="false"
+           debug="yes" includes="org/w3c/**" srcdir="." source="1.8" target="1.8"/>
+    <copy todir="./build">
+      <fileset dir="./">
+        <include name="org/**"/>
+        <exclude name="**/*.java"/>
+        <exclude name="**/*.class"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="jigsaw" description="Builds the validator for Jigsaw" depends="prepare">
+    <mkdir dir="./build"/>
+    <javac classpathref="build.class.path" destdir="." encoding="UTF-8"
+           debug="yes" source="1.8" target="1.8" includeantruntime="false">
+      <src path="./org/w3c"/>
+    </javac>
+  </target>
+
+  <target name="javadoc" description="Generates API docs">
+    <mkdir dir="./javadoc"/>
+    <javadoc
+      packagenames="org.w3c.*"
+      sourcepath="./"
+      destdir="./javadoc"
+      author="true"
+      version="true"
+      windowtitle="W3C CSS Validator API"/>
+  </target>
+
+  <target name="jar" depends="build" description="Creates the lib archive">
+    <delete file="${jar.file}"/>
+    <jar jarfile="${jar.file}" basedir="build" excludes="org/**/*.java">
+      <include name="org/**"/>
+      <manifest>
+        <attribute name="Main-Class" value="org.w3c.css.css.CssValidator"/>
+        <attribute name="Class-path" value=". lib/commons-beanutils-1.9.2.jar lib/commons-collections-3.2.1.jar lib/commons-digester-1.8.1.jar lib/commons-lang-2.6.jar lib/commons-logging-1.1.2.jar lib/jigsaw-2.2.6.jar lib/tagsoup-1.2.1.jar lib/velocity-1.7.jar lib/velocity-tools-generic-2.0.jar lib/xercesImpl-2.11.0.jar lib/xml-apis-1.4.01.jar lib/htmlparser-1.4.1.jar"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="war" depends="build" description="Creates the webapp module">
+    <delete file="${war.file}"/>
+	<war warfile="${war.file}" webxml="web.xml" basedir="."
+		includes="robots.txt *html*,favicon.ico,images/**,style/**,scripts/**,tabtastic/**"
+		excludes="html,css-validator.*,images/validate/*.php">
+      <classes dir="build"/>
+      <lib dir="lib">
+        <exclude name="*servlet*.jar"/>
+      </lib>
+    </war>
+  </target>
+
+  <target name="clean" description="Cleans up generated files">
+    <delete file="${jar.file}"/>
+    <delete file="${war.file}"/>
+    <delete dir="./build"/>
+    <delete dir="./javadoc"/>
+    <delete dir="./tmp"/>
+  </target>
+
+</project>

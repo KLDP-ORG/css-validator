@@ -1,0 +1,36 @@
+diff -urNp css-validator.org/org/w3c/css/error/error.html css-validator/org/w3c/css/error/error.html
+--- css-validator.org/org/w3c/css/error/error.html	2015-11-05 05:04:15.000000000 +0900
++++ css-validator/org/w3c/css/error/error.html	2016-02-26 16:56:10.625845249 +0900
+@@ -4,12 +4,12 @@
+   <head>
+     <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+     <title>CSS Validator : Error</title>
+-    <link type="text/css" rel='stylesheet' href='http://jigsaw.w3.org/css-validator/style/error.css' />
++    <link type="text/css" rel='stylesheet' href='//jigsaw.w3.org/css-validator/style/error.css' />
+   </head>
+ 
+   <body>
+     <div>
+-      <a href="http://www.w3.org/"><img src="http://www.w3.org/Icons/w3c_home" alt="w3c" /></a>
++      <a href="http://www.w3.org/"><img src="//www.w3.org/Icons/w3c_home" alt="w3c" /></a>
+     </div>
+     <hr />
+     <div class="t1">CSS</div>
+diff -urNp css-validator.org/org/w3c/css/servlet/error.html css-validator/org/w3c/css/servlet/error.html
+--- css-validator.org/org/w3c/css/servlet/error.html	2015-11-05 05:04:15.000000000 +0900
++++ css-validator/org/w3c/css/servlet/error.html	2016-02-26 16:57:15.963354611 +0900
+@@ -4,12 +4,12 @@
+   <head>
+     <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+     <title>CSS Validator : Error</title>
+-    <link type="text/css" rel='stylesheet' href='http://jigsaw.w3.org/css-validator/style/error.css' />
++    <link type="text/css" rel='stylesheet' href='//jigsaw.w3.org/css-validator/style/error.css' />
+   </head>
+ 
+   <body>
+     <div>
+-      <a href="http://www.w3.org/"><img src="http://www.w3.org/Icons/w3c_home" alt="w3c" /></a>
++      <a href="http://www.w3.org/"><img src="//www.w3.org/Icons/w3c_home" alt="w3c" /></a>
+     </div>
+     <hr />
+     <div class="t1">CSS</div>

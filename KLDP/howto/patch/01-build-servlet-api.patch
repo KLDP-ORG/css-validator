@@ -1,0 +1,24 @@
+diff -urNp css-validator-ko-20121129.org/build.xml css-validator-ko-20121129/build.xml
+--- css-validator-ko-20121129.org/build.xml	2011-11-01 16:51:20.000000000 +0900
++++ css-validator-ko-20121129/build.xml	2012-11-29 05:32:18.255412747 +0900
+@@ -6,7 +6,7 @@
+   <!-- User-overrideable properties                                      -->
+   <!-- =================================================================== -->
+       
+-  <property name="servlet.lib" value="/usr/share/java/servlet-2.3.jar"/>
++  <property name="servlet.lib" value="/usr/java/tomcat/lib/servlet-api.jar"/>
+ 
+   <!-- =================================================================== -->
+   <!-- Project-wide properties                                           -->
+diff -urNp css-validator-ko-20121129.org/web.xml css-validator-ko-20121129/web.xml
+--- css-validator-ko-20121129.org/web.xml	2011-01-13 00:01:56.000000000 +0900
++++ css-validator-ko-20121129/web.xml	2012-11-29 05:53:57.484412610 +0900
+@@ -20,7 +20,7 @@
+    </servlet-mapping>
+ 
+    <welcome-file-list>
+-     <welcome-file>validator.html.en</welcome-file>
++     <welcome-file>validator.html.ko</welcome-file>
+    </welcome-file-list>
+ 
+ <!-- ===================== Additional MIME Type Mappings =================== -->

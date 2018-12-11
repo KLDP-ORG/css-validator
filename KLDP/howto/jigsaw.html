@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+  <head>
+    <title>KLDP CSS Validate Check Service</title>
+    <link rev="made" href="mailto:www-validator@w3.org" />
+    <link rev="start" href="./" title="Home Page" />
+    <style type="text/css" media="all"> 
+      @import "../style/base.css";  
+      @import "../style/docs.css";
+      @import "./style/howto.css";
+    </style> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+  <div id="banner">
+    <h1 id="title"><a href="http://www.w3.org/"><img height="48" alt="W3C"
+        id="logo" src="/images/w3c.png" /></a>
+    CSS Validation Service</h1>
+  </div>
+  <ul class="navbar" id="menu">
+    <li>
+      <span class="hideme"><a href="#skip" accesskey="s" title="Skip past navigation to main part of page">Skip Navigation</a> |</span>
+      <a href="../" accesskey="h" title="W3C CSS 검사 홈페이지">[홈]</a> <span class="hideme">|</span></li>
+    <li><a href="../Email.html" title="이 서비스에 대한 피드백을 제공">피드백</a> <span class="hideme">|</span></li>
+    <li><a href="./" title="CSS validator 설치 참고 문서">설치</a> <span class="hideme">|</span></li>
+    <li><a href="../thanks.html" title="Credits and Acknowlegments">공헌</a><span class="hideme">|</span></li>
+  </ul>
+
+  <div id="main" class="doc"><!-- This DIV encapsulates everything in each actual page. -->
+
+    <div>
+    <h2>Operation CSS Validator on your machine</h2>
+    </div>
+
+    <div class="intro">
+    <p>
+    이 문서는 CSS-Validator 를 local server 에서 직접 운영을 하기 위하여 CSS-Validator
+    소스를 받아서 설치하여 운영을 하기 위한 자료이다. 이 문서는 2006년 12월 5일 현재의
+    CSS-Validator 소스와 Jigsaw 웹서버의 버전 환경에서 작동할 수 있는 환경을 기준으로
+    하였다.</p>
+
+    <p>
+    이 문서는 <a href="http://oops.org">김정균</a>에 의하여 작성이 되었으며, 자유롭게
+    사용하여도 무방하다.
+    </p>
+    <ol>
+    <li><a href="#req">Requirement</a></li>
+    <li><a href="#build">Build</a></li>
+    <li><a href="#cssconf">CSS-Validation Configuration</a></li>
+    <li><a href="#confirm">Confirm</a></li>
+    <li><a href="#problems">Problems</a></li>
+    <li><a href="./tomcat.html">Tomcat 을 이용한 운영</a></li>
+    </ol>
+    </div>
+
+    <div>
+    <a name="req"></a>
+    <fieldset class="front"><legend>1. Requirement</legend>
+    <br />
+    <ol>
+    <li><span class="sec">css-validator source:</span><br />
+         cvs -d:pserver:anonymous@dev.w3.org:/sources/public login<br />
+         cvs -d:pserver:anonymous@dev.w3.org:/sources/public co 2002/css-validator<br /><br />
+    </li>
+    <li><span class="sec">Jigsaw Java WebServer:</span><br />
+        http://jigsaw.w3.org/Distrib/jigsaw_2.2.5a.tar.bz2<br /><br />
+    </li>
+    <li><span class="sec">ant (css-build 를 위해 필요):</span><br />
+        http://ant.apache.org/bindownload.cgi (Java build tool)<br />
+        http://mirror.apache.or.kr/ant/binaries/apache-ant-1.6.5-bin.tar.bz2<br /><br />
+    </li>
+    <li><span class="sec">JDK:</span><br />
+        - 아쉽게도 JDK 1.2 에서만 제대로 작동을 한다. 그 외의 버전에서는 무언가 작동 안하는 것이 있다.<br />
+        - Jigsaw web server 역시 JDK 1.2 에서만 작동함<br />
+        - <a href="http://javashoplm.sun.com/ECom/docs/Welcome.jsp?StoreId=22&amp;PartDetailId=7740-j2sdk-1.2.2_017-oth-JPR&amp;SiteId=JSC&amp;TransactionId=noreg">JDK 1.2.2</a> 다운로드<br /><br />
+    </li>
+    </ol>
+    </fieldset>
+
+    <br /><a name="build"></a>
+    <fieldset class="front"><legend>2. Build</legend>
+    <br />
+    <ol>
+    <li><span class="sec">jdk 1.2.2 Installation:</span><br />
+        <span class="shell">shell&gt;</span> mkdir /usr/java<br />
+        <span class="shell">shell&gt;</span> cd /usr/java<br />
+        <span class="shell">shell&gt;</span> tar xvfpz path/jdk-1_2_2_017-linux-i586.tar.gz<br /><br />
+    </li>
+    <li><span class="sec">ant Installation:</span><br />
+        <span class="shell">shell&gt;</span> tar xvfpj apache-ant-1.6.2-bin.tar.bz2<br />
+        <span class="shell">shell&gt;</span> mv apache-ant-1.6.2 /uar/local/ant<br /><br />
+    </li>
+	<!--
+    <li><span class="sec">jwsdk Installation:</span><br />
+        <span class="shell">shell&gt;</span> mkdir /usr/java/jwsdp<br />
+        <span class="shell">shell&gt;</span> tail +358 jwsdp-1_5-unix.sh &gt; /usr/java/jwsdp/jwsdp-1_5.jar<br /><br />
+    </li>
+	-->
+    <li><span class="sec">Jigsaw Installation:</span><br />
+        <span class="shell">shell&gt;</span> tar xvfpj jigsaw_2.2.4.tar.bz2<br />
+        <span class="shell">shell&gt;</span> mv Jigsaw /usr/java/Jigsaw<br /><br />
+    </li>
+    <li><span class="sec">css-validation build</span><br />
+        01-css-korean.patch 을 적용하기 전에 css-validator.kldp.org 문자열을 자신의 호스트로 변경해 준다.<br /><br />
+        <span class="shell">shell&gt;</span> cd 2002/css-validator<br />
+		<span class="shell">shell&gt;</span> tar xvfpz <a href="./patch/css-validator-kofiles.tar.gz">css-validator-kofiles.tar.gz</a><br />
+        <span class="shell">shell&gt;</span> patch -p0 &lt; <a
+        href="./patch/01-css-korean.patch">01-css-korean.patch</a><br />
+        <span class="shell">shell&gt;</span> patch -p0 &lt; <a href="./patch/02-css-deprecate.patch">03-css-deprecate.patch</a><br /><br />
+        패치를 하면 build-jigsaw.sh 가 생성이 됨.<br /><br />
+        <span class="shell">shell&gt;</span> sh ./build-jigsaw.sh<br />
+        <span class="shell">shell&gt;</span> cd build<br />
+        <span class="shell">shell&gt;</span> mkdir -p /usr/java/Jigsaw/Jigsaw/WWW/css-validator<br />
+        <span class="shell">shell&gt;</span> mv validator.jar /usr/java/Jigsaw/Jigsaw/WWW/css-validator/<br /><br />
+    </li>
+    <li><span class="sec">Jigsaw build</span><br />
+        <span class="shell">shell&gt;</span> cd /usr/java/Jigsaw/Jigsaw<br />
+        download <a href="./script/jigsawinstall.sh.txt">jigsawinstall.sh</a><br />
+        <span class="shell">shell&gt;</span> sh ./jigsawinstall.sh<br />
+        download <a href="./script/jigsaw.sysconfig.txt">jigsaw.sysconfig</a><br />
+        <span class="shell">shell&gt;</span> mv jigsaw.sysconfig.txt /etc/sysconfig/jigsaw<br />
+        download <a href="./script/jigsaw.init.txt">jigsaw.init</a><br />
+        <span class="shell">shell&gt;</span> mv jigsaw.init.txt /etc/init.d/jigsaw<br />
+        <span class="shell">shell&gt;</span> chkconfig --add jigsaw<br />
+        <span class="shell">shell&gt;</span> chkconfig --level 345 jigsaw on<br />
+        <span class="shell">shell&gt;</span> ntsysv jigsaw 체크 (부팅시 자동 load / Redhat 계열 배포본)
+    </li>
+    </ol>
+    </fieldset>
+
+    <br /><a name="cssconf"></a>
+    <fieldset class="front"><legend>3. CSS-Validator Configuration</legend>
+    <br />
+    <ol>
+    <li><span class="sec">Jigsaw start</span><br />
+        <span class="shell">shell&gt;</span> /etc/init.d/jigsaw start<br /><br />
+
+        8001, 8009 포트가 열리게 됨.<br />
+        8001 port: web service port<br />
+        8009 port: Jigsaw web server admin port
+    <br /><br />
+    </li>
+    <li><span class="sec">Jigsaw admin</span><br />
+        /etc/init.d/jigsaw admin<br /><br />
+
+        Jigsaw admin 은 웹으로 접속이 안되며, 위의 명령으로 만 접속이 가능함.
+        jigsaw admin 명령은 X 로 실행이 되므로, X 가 있어야 하며, 서버에 X 가
+        없을 경우, ssh 의 X11 Forwarding 을 이용하여 설정이 가능함.<br /><br />
+
+        Default User: admin<br />
+        Default Pass: admin<br /><br />
+
+        으로 admin 으로 로그인<br /><br />
+
+        기본적인 Jigsaw 설정은 http://server:8001/ 에서 Jigsaw 문서를 참고<br /><br />
+
+        좌측 메뉴에서 http-server 선택.<br />
+        Docs space 에서 css-validaotr directory 를 오른쪽 클릭 하여 Edit resource 선택<br />
+        Edit resource 선택 창에서 상단의 HTTPFrame (frame-0) 을 선택하고, 오른쪽 클릭<br />
+        하여 delete resource 클릭해서 삭제함.<br />
+        현 상태에서 css-validator 의 Edit resource 창의 상단에서 css-validator 를 선택하고<br />
+        오른쪽 클릭 한 후 add frame 을 선택한 후에<br />
+        org.w3c.jigsaw.servlet.ServletDirectoryFrame 를 추가함.<br />
+        cvs-validator 의 Edit Resource 의 Attrebutes 에서<br /><br />
+
+        &nbsp;&nbsp;&nbsp;&nbsp;indexer : servlet-indexer<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;Extensible: True (check)<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;shrinkable: True (check)<br /><br />
+
+        설정 함.<br /><br />
+
+        css-validator Edit Rewoure 를 종료한 후, Docs space 의 css-validator 선택한 후에,
+        오른쪽 클릭하여 add resouce 선택<br /><br />
+
+        Class name 에 org.w3c.jigsaw.servlet.ServletWrapper identifier 에 validator 를 입력
+        하여 validator 생성. validator 가 생성이 되었으면, validator 를 선택한 후에, 오른쪽
+        클릭 하여 edit resource 선택 한 후, servlet class 에 org.w3c.css.servlet.CssValidator 
+        를 추가함. 이 설정창의 상단에<br /><br />
+
+        &nbsp;&nbsp;validator<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;-&gt; ServletWrapperFrame (servlet-wrapper-frame)<br /><br />
+
+        과 같이 ServletWrapperFrame 이 없으면 추가해 줌<br /><br />
+
+        jigadmin 종료<br /><br />
+
+        /etc/init.d/jigsaw restart 하여 설정 재반영.
+    <br /><br />
+    </li>
+    </ol>
+    </fieldset>
+
+    <br /><a name="confirm"></a>
+    <fieldset class="front"><legend>4. 확인</legend>
+    <br />
+    http://server:8001/css-validator/validaotr?uri=http://domain
+    으로 확인
+    </fieldset>
+
+    <br /><a name="problems"></a>
+    <fieldset class="front"><legend>5. 문제점</legend>
+    <br />
+    <ol>
+	<li>영문 모드에서는 한글 폰트명이 존재할 경우 에러로 처리</li>
+    <li>CSS 의 한글 폰트명이 깨어져 출력<br />
+http://my.oops.org/84 참조</li>
+    </ol>
+    </fieldset>
+    </div>
+
+
+  </div><!-- End of "main" DIV. -->
+
+  <address>
+    <a href="http://validator.kldp.org/check/referer"><img
+       src="http://validator.kldp.org/w3cimgs/validate/xhtml10-orange.png" height="15" width="80"
+       alt="Valid XHTML 1.0!" /></a>
+    <a class="right" href="http://css-validator.kldp.org/check/referer"><img
+       style="border:0;width:80px;height:15px" src="/images/validate/css20-orange.png" 
+       alt="Valid CSS!" /></a>
+    <a title="Send Feedback for the W3C Markup Korean Validation Service"
+       href="mailto:oops@kldp.org">JoungKyun.Kim</a><br />
+    $Date: 2006/12/28 23:35:59 $
+    <!-- SSI Template Version: $Id: validator.html.en,v 1.11 2004/10/04 01:18:59 ot Exp $ -->
+  </address>
+
+  </body>
+</html>
+

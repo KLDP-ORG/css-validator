@@ -1,0 +1,6 @@
+
+JAVA_BASE="/usr/java"
+JAVA_HOME="${JAVA_BASE}/latest"
+CATALINA_HOME="${JAVA_BASE}/tomcat"
+
+RUNUSER=kldp
