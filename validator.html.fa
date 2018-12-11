@@ -37,7 +37,7 @@
         </p>
         <p>
            <label title="آدرس صفحه جهت تایید اعتبار" for="uri">آدرس:
-             <input type="text" name="uri" id="uri" size="45" autofocus placeholder="Enter a URL like http://domain.com/path/" />
+             <input type="text" name="uri" id="uri" size="45" autofocus placeholder="Enter a URL like http://domain.com/path" />
            </label>
         </p>
               <fieldset id="extra_opt_uri" class="moreoptions">
@@ -317,7 +317,7 @@
   <div id="w3c-include"><script type="text/javascript" src="//validator.kldp.org/QA/Tools/w3c-include.js"></script></div>
 
   <div class="intro">
-  <p><strong>توجه</strong>: <a href="http://validator.w3.org"> مورد استفاده معتبر باشد (X)HTML بررسی نمایید که <a/> خودتان را تایید اعتبار نمایید، نخست باید (X)HTML جاسازی شده در یک سند CSS اگر بخواهید شیوه نامه ی .
+  <p><strong>توجه</strong>: <a href="http://validator.kldp.org"> مورد استفاده معتبر باشد (X)HTML بررسی نمایید که <a/> خودتان را تایید اعتبار نمایید، نخست باید (X)HTML جاسازی شده در یک سند CSS اگر بخواهید شیوه نامه ی .
   </p>
   </div>
   <ul class="navbar" id="menu">
