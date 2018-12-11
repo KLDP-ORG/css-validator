@@ -250,11 +250,11 @@ http://www.w3.org/TR/CSS2/media.html</a> में मीडिया के ब
 <div id="footer">
 	<p id="activity_logos">
 	<a href="http://www.w3.org/QA/" title="W3C's Quality Assurance Activity, bringing you free Web quality tools and more">
-	<img alt="QA" src="http://validator.kldp.org/QA/2002/12/qa-small.png" /></a><a href="http://www.w3.org/Style/CSS/learning" title="Learn more about Cascading Style Sheets"><img alt="CSS" src="images/woolly-icon" /></a>
+	<img alt="QA" src="//validator.kldp.org/QA/2002/12/qa-small.png" /></a><a href="http://www.w3.org/Style/CSS/learning" title="Learn more about Cascading Style Sheets"><img alt="CSS" src="images/woolly-icon" /></a>
 	</p>
 	<p id="support_logo">Support this tool, become a<br />
 	<a href="http://www.w3.org/Consortium/supporters">
-	<img alt="W3C Supporter" src="http://www.w3.org/Consortium/supporter-logos/csupporter.png" /></a>
+	<img alt="W3C Supporter" src="//www.w3.org/Consortium/supporter-logos/csupporter.png" /></a>
 	</p>
 	<p class="copyright">
 	<a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright" rel="Copyright">
